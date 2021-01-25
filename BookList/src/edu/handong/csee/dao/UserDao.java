@@ -22,7 +22,7 @@ public class UserDao {
 		try {
 			Connection con = getConnection();
 			PreparedStatement ps = con
-					.prepareStatement("insert into Book(title,writer,content) values(?,?,?)");
+					.prepareStatement("insert into Book (title,writer,content) values(?,?,?)");
 			ps.setString(1, u.getTitle());
 			ps.setString(2, u.getWriter());
 			ps.setString(3, u.getContent());
@@ -39,7 +39,7 @@ public class UserDao {
 		try {
 			Connection con = getConnection();
 			PreparedStatement ps = con
-					.prepareStatement("update Book set title=?,writer=?,content=?, where seq=?");
+					.prepareStatement("update Book set title=?, writer=?, content=? where seq=?");
 			ps.setString(1, u.getTitle());
 			ps.setString(2, u.getWriter());
 			ps.setString(3, u.getContent());
@@ -70,7 +70,7 @@ public class UserDao {
 
 		try {
 			Connection con = getConnection();
-			PreparedStatement ps = con.prepareStatement("select * from Book");
+			PreparedStatement ps = con.prepareStatement("select * from Book order by seq desc");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				User u = new User();

@@ -18,7 +18,7 @@
 
 	<h1>Edit Form</h1>
 	<form action="edituser.jsp" method="post">
-		<input type="hidden" name="id" value="<%=u.getSeq()%>" />
+		<input type="hidden" name="seq" value="<%=u.getSeq()%>" />
 		<table>
 			<tr>
 				<td>Title :</td>

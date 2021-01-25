@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%	request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,8 @@
 	<jsp:useBean id="u" class="edu.handong.csee.bean.User"></jsp:useBean>
 	<jsp:setProperty property="*" name="u" />
 	<%
-		int i = UserDao.update(u);
+	UserDao userDao = new UserDao();
+	int i = userDao.update(u);
 	response.sendRedirect("viewusers.jsp");
 	%>
 </body>

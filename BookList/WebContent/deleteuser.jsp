@@ -11,7 +11,15 @@
 	<jsp:useBean id="u" class="edu.handong.csee.bean.User"></jsp:useBean>
 	<jsp:setProperty property="*" name="u" />
 	<%
-		UserDao.delete(u);
+	
+	String sid = request.getParameter("id");
+	if (sid != ""){  
+		int id = Integer.parseInt(sid);
+		//User u = new User();
+		u.setSeq(id);
+		UserDao userDao = new UserDao();
+		userDao.delete(u);
+	}
 	response.sendRedirect("viewusers.jsp");
 	%>
 </body>
