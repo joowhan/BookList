@@ -20,7 +20,7 @@
 	<h1>List of Books</h1>
 
 	<%
-		request.setCharacterEncoding("utf-8");
+	
 	List<User> list = UserDao.getAllRecords();
 	request.setAttribute("list", list);
 	%>

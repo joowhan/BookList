@@ -22,10 +22,11 @@ public class UserDao {
 		try {
 			Connection con = getConnection();
 			PreparedStatement ps = con
-					.prepareStatement("insert into Book (title,writer,content) values(?,?,?)");
+					.prepareStatement("insert into Book (title,writer,content,image) values(?,?,?,?)");
 			ps.setString(1, u.getTitle());
 			ps.setString(2, u.getWriter());
 			ps.setString(3, u.getContent());
+			ps.setString(4, u.getImage());
 			//ps.setInt(4, u.getSeq());
 			status = ps.executeUpdate();
 		} catch (Exception e) {
@@ -39,11 +40,12 @@ public class UserDao {
 		try {
 			Connection con = getConnection();
 			PreparedStatement ps = con
-					.prepareStatement("update Book set title=?, writer=?, content=? where seq=?");
+					.prepareStatement("update Book set title=?, writer=?, content=?, image=? where seq=?");
 			ps.setString(1, u.getTitle());
 			ps.setString(2, u.getWriter());
 			ps.setString(3, u.getContent());
-			ps.setInt(4, u.getSeq());
+			ps.setString(4, u.getImage());
+			ps.setInt(5, u.getSeq());
 			status = ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -78,6 +80,7 @@ public class UserDao {
 				u.setTitle(rs.getString("title"));
 				u.setWriter(rs.getString("writer"));
 				u.setContent(rs.getString("content"));
+				u.setImage(rs.getString("image"));
 				u.setCnt(rs.getInt("cnt"));
 				list.add(u);
 			}
@@ -100,6 +103,7 @@ public class UserDao {
 				u.setTitle(rs.getString("title"));
 				u.setWriter(rs.getString("writer"));
 				u.setContent(rs.getString("content"));
+				u.setImage(rs.getString("image"));
 				u.setCnt(rs.getInt("cnt"));
 			}
 		} catch (Exception e) {

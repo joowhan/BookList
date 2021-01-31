@@ -7,7 +7,8 @@ public class User {
 	private String title; 
 	private String writer; 
 	private String content;
-	private Date regdate; 
+	private Date regdate;
+	private String image;
 	private int cnt;
 	
 	public int getSeq() {
@@ -45,6 +46,12 @@ public class User {
 	}
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	} 
 	
 }

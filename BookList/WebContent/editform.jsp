@@ -11,8 +11,8 @@
 
 
 	<%
-	request.setCharacterEncoding("utf-8");
-		String id = request.getParameter("id");
+		request.setCharacterEncoding("utf-8");
+	String id = request.getParameter("id");
 	User u = UserDao.getRecordById(Integer.parseInt(id));
 	%>
 
@@ -26,13 +26,23 @@
 			</tr>
 			<tr>
 				<td>Author :</td>
-				<td><input type="text" name="writer"
-					value="<%=u.getWriter()%>" /></td>
+				<td><input type="text" name="writer" value="<%=u.getWriter()%>" /></td>
 			</tr>
 			<tr>
 				<td>Content:</td>
-				<td><td><textarea cols="50" rows="5" name="content"><%=u.getContent()%></textarea></td>
+				<td>
+				<td><textarea cols="50" rows="5" name="content"><%=u.getContent()%></textarea></td>
 			</tr>
+			<div>
+				<label class="" for="image">File
+					Upload</label>
+				<div>
+					<img
+						src="${pageContext.request.contextPath }/upload/<%=u.getImage()%>"
+						style="width: 150px; height: 150px;"> <input type="file"
+						class="form-control" name="image" />
+				</div>
+			</div>
 			<tr>
 				<td colspan="2"><input type="submit" value="Edit User" /></td>
 			</tr>

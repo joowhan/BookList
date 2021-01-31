@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +25,16 @@
 				<td>Content:</td>
 				<td><textarea cols="50" rows="5" name="content"></textarea></td>
 			</tr>
-			
+			<tr>
+				<td>File Upload</td>
+				<td><input type="file" name="image" /></td>
+
+			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Add Book" /></td>
 			</tr>
 		</table>
+
 	</form>
 </body>
 </html>
